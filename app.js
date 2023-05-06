@@ -6,6 +6,7 @@ let displayValue = (" ")
 let value
 let value_left
 let operand
+let equals_sign = " = "
 
 let number_buttons_values = [ '7' , '8' , '9' , '4' , '5' , '6' , '1' , '2' , '3' , '0' , '.']
 let operator_buttons_values = ['C' , '#' , '%' , '/' , 'x' , '-' , '+' , '#' , '=']
@@ -136,25 +137,31 @@ function sum(){
     if(operand === '+') {
         // let ans = parseInt(displayValue) + parseInt(displayValue)
         ans = value_left + value
-        display_box.textContent = ans
+        displayValue += equals_sign + ans
+        display_box.textContent = displayValue
     }
     if(operand === '-') {
         // let ans = parseInt(displayValue) + parseInt(displayValue)
         ans = value_left - value
-        display_box.textContent = ans
+        displayValue += equals_sign + ans
+        display_box.textContent = displayValue
     }
     if(operand === 'x') {
         // let ans = parseInt(displayValue) + parseInt(displayValue)
         ans = value_left * value
-        display_box.textContent = ans
+        // display_box.textContent = ans
+        displayValue += equals_sign + ans
+        display_box.textContent = displayValue
     }
-    if(operator_buttons === '/') {
+    if(operand === '/') {
         // let ans = parseInt(displayValue) + parseInt(displayValue)
         ans = value_left / value
-        display_box.textContent = ans
-    }if(operator_buttons === '%') {
+        displayValue += equals_sign + ans
+        display_box.textContent = displayValue
+    }if(operand === '%') {
         // let ans = parseInt(displayValue) + parseInt(displayValue)
         ans = value_left % value
+        displayValue += equals_sign + ans
         display_box.textContent = ans
     }
 
@@ -165,7 +172,6 @@ operator_buttons[8].addEventListener('click' , function(){
     // display_box.textContent = displayValue
     sum()
 })
-
 
 
 
